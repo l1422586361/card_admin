@@ -1,6 +1,10 @@
 import ast
 
 def show_all_list():
+    """
+    读取文件内容，以列表形式输出
+    :return: 返回列表
+    """
     file = open("LIST")
     list =[]
     while True:
@@ -123,6 +127,10 @@ def update_card(dict_value,tip):
         return dict_value
 
 def update_list(cards_list):
+    """
+    更新文件内容，将列表以格式输入至文件内（先清空文件内容，再输入1）
+    :param cards_list: 列表
+    """
     f = open("LIST","w")
     f.truncate()
     for i in cards_list:
