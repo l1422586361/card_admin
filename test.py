@@ -1,24 +1,32 @@
 import ast
-
-file  = open("LIST")
-# text = file.read()
-# print(text[:-2])
-list = []
-# p = eval(text[:-2])
-# list.append(p)
-# print(list)
-
-
-
+f = open("LIST")
+list=[]
+list2={'name': 'lin', 'phone': '123', 'email': '123'}
 while True:
-    text = file.readline()
-    if not text:
+    a = f.readline()
+    if not a:
         break
-    list.append(ast.literal_eval(text)) # 使用eval会有安全问题，ast.literal_eval则不会
-    print(text)
+    list.append(ast.literal_eval(a))
 print(list)
 
+for dict in list:
+    if dict["name"] == "lin":
+        list.remove(dict)
+        list.append(list2)
+print(list)
+f = open("LIST","w")
+f.truncate()
+for dict in list:
+    f = open("LIST","a+")
+    # f.seek(0)
+    f.write(str(dict)+"\n")
 
 
-file.close()
+    # print(dict)
 
+# f.write(str(list))
+# f.writelines(str(list))
+
+
+
+f.close()
